@@ -43,7 +43,7 @@ class UserController extends Controller
 		$user = User::create([
 			'name' => request('name'),
 			'email' => request('email'),
-			'password' => request('email')
+			'password' => bcrypt(request('email'))
 		]);
 
 		$role = Role::where('display_name', request('role'))->first();
